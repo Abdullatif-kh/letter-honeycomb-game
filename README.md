@@ -4,8 +4,8 @@ A strategic quiz competition game inspired by the Arabic TV show "Huroof" hosted
 
 ## 🔗 Quick Links
 
-- 🎮 **[Play Online](https://abdullatif-alkhanbashi.github.io/letter-honeycomb-game/)**
-- 💻 **[Source Code](https://github.com/abdullatif-alkhanbashi/letter-honeycomb-game)**
+- 🎮 **[Play Online](https://abdullatif-kh.github.io/letter-honeycomb-game/)**
+- 💻 **[Source Code](https://github.com/Abdullatif-kh/letter-honeycomb-game)**
 
 ## 🎯 How to Play
 
@@ -46,13 +46,13 @@ A strategic quiz competition game inspired by the Arabic TV show "Huroof" hosted
 ## 🚀 Quick Start
 
 ### 👥 For Players
-1. 🌐 Open the [game link](https://abdullatif-alkhanbashi.github.io/letter-honeycomb-game/)
+1. 🌐 Open the [game link](https://abdullatif-kh.github.io/letter-honeycomb-game/)
 2. 🌍 Choose language (Arabic/English)
 3. 🎮 Start playing immediately
 
 ### 👨‍💻 For Developers
 ```bash
-git clone https://github.com/abdullatif-alkhanbashi/letter-honeycomb-game.git
+git clone https://github.com/Abdullatif-kh/letter-honeycomb-game.git
 cd letter-honeycomb-game
 open index.html
 ```
