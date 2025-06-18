@@ -78,4 +78,3 @@ open index.html
 **🎬 Inspired by**: "Huroof" TV show by Majed Al-Shebl  
 **💻 Developer**: Abdullatif Alkhanbashi  
 **📅 Year**: 2025  
-**📄 License**: MIT
