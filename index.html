@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة خلية الحروف</title>
+    <meta name="description" content="لعبة خلية الحروف - لعبة تعليمية ممتعة لتعلم الحروف والثقافة العامة">
+    <meta name="keywords" content="لعبة تعليمية، حروف عربية، حروف إنجليزية، ألعاب لغوية، تعليم الأطفال، خلية الحروف">
+    <meta name="author" content="عبداللطيف الخنبشي">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Main control buttons -->
+        <div class="main-controls">
+            <div class="controls-group">
+                <button id="langToggle" class="control-btn">
+                    <i class="fas fa-language"></i>
+                    <span class="btn-text">English</span>
+                </button>
+                
+                <button id="themeToggle" class="control-btn">
+                    <i class="fas fa-moon"></i>
+                    <span class="btn-text">الوضع الليلي</span>
+                </button>
+            
+                <!-- Zoom controls -->
+                <button id="zoomInBtn" class="control-btn icon-only">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button id="zoomOutBtn" class="control-btn icon-only">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                
+                <!-- Help button -->
+                <button id="helpBtn" class="control-btn icon-only">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game title -->
+        <div class="header">
+            <h1 class="game-title" id="game-title">
+                <i class="fas fa-chess-board"></i> 
+                <span>لعبة</span> خلية الحروف
+            </h1>
+        </div>
+
+        <!-- Color control buttons -->
+        <div class="controls-container">
+            <div class="controls">
+                <button class="color-btn green-btn" id="greenBtn">
+                    <i class="fas fa-paint-brush"></i> الأخضر
+                </button>
+                <button class="color-btn red-btn" id="redBtn">
+                    <i class="fas fa-paint-brush"></i> الأحمر
+                </button>
+                <button class="color-btn cream-btn" id="creamBtn">
+                    <i class="fas fa-paint-brush"></i> الأصلي
+                </button>
+                <button class="color-btn reset-btn" id="resetBtn">
+                    <i class="fas fa-eraser"></i> مسح الكل
+                </button>
+                <button class="color-btn random-btn" id="randomBtn">
+                    <i class="fas fa-random"></i> حرف عشوائي
+                </button>
+                <button class="color-btn shuffle-btn" id="shuffleBtn">
+                    <i class="fas fa-sync-alt"></i> تبديل الحروف
+                </button>
+            </div>
+        </div>
+
+        <!-- Status message -->
+        <div class="status-text" id="statusText">
+            اختر لوناً ثم انقر على الخلايا لتغيير لونها
+        </div>
+
+        <!-- Honeycomb container -->
+        <div class="honeycomb-container">
+            <div class="honeycomb">
+                <!-- Row 1 - Pink border cells -->
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+
+                <!-- Row 2 - Letters with green border cells -->
+                <div class="hex green"></div>
+                <div class="hex cream letter">أ</div>
+                <div class="hex cream letter">ب</div>
+                <div class="hex cream letter">ت</div>
+                <div class="hex cream letter">ث</div>
+                <div class="hex cream letter">ج</div>
+                <div class="hex green"></div>
+
+                <!-- Row 3 - Letters with green border cells -->
+                <div class="hex green"></div>
+                <div class="hex cream letter">ح</div>
+                <div class="hex cream letter">خ</div>
+                <div class="hex cream letter">د</div>
+                <div class="hex cream letter">ذ</div>
+                <div class="hex cream letter">ر</div>
+                <div class="hex green"></div>
+
+                <!-- Row 4 - Letters with green border cells -->
+                <div class="hex green"></div>
+                <div class="hex cream letter">ز</div>
+                <div class="hex cream letter">س</div>
+                <div class="hex cream letter">ش</div>
+                <div class="hex cream letter">ص</div>
+                <div class="hex cream letter">ض</div>
+                <div class="hex green"></div>
+
+                <!-- Row 5 - Letters with green border cells -->
+                <div class="hex green"></div>
+                <div class="hex cream letter">ط</div>
+                <div class="hex cream letter">ظ</div>
+                <div class="hex cream letter">ع</div>
+                <div class="hex cream letter">غ</div>
+                <div class="hex cream letter">ف</div>
+                <div class="hex green"></div>
+
+                <!-- Row 6 - Letters with green border cells -->
+                <div class="hex green"></div>
+                <div class="hex cream letter">ق</div>
+                <div class="hex cream letter">ك</div>
+                <div class="hex cream letter">ل</div>
+                <div class="hex cream letter">م</div>
+                <div class="hex cream letter">ن</div>
+                <div class="hex green"></div>
+
+                <!-- Row 7 - Pink border cells -->
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+                <div class="hex pink"></div>
+            </div>
+        </div>
+
+        <!-- Game statistics -->
+        <div class="game-stats">
+            <div class="stat-box">
+                <i class="fas fa-leaf"></i>
+                <span id="greenCountLabel">الخلايا الخضراء: <span id="greenCount">0</span></span>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-fire"></i>
+                <span id="redCountLabel">الخلايا الحمراء: <span id="redCount">0</span></span>
+            </div>
+        </div>
+
+        <!-- Confirmation dialog -->
+        <div id="confirmDialog" class="confirm-dialog">
+            <div class="dialog-content">
+                <h3 id="confirmTitle">تأكيد العملية</h3>
+                <p id="confirmMessage">سيتم حذف جميع التقدم الحالي وتبديل الحروف. هل أنت متأكد؟</p>
+                <div class="dialog-buttons">
+                    <button id="confirmYes" class="dialog-btn yes-btn">موافق</button>
+                    <button id="confirmNo" class="dialog-btn no-btn">إلغاء</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help dialog -->
+        <div id="helpDialog" class="help-dialog">
+            <div class="help-content">
+                <h3 id="helpTitle">تعليمات اللعبة</h3>
+                <div id="helpContent">
+                    <h4>تعليمات اللعبة</h4>
+                    <p><strong>كيفية اللعب:</strong></p>
+                    <p><strong>الحرف الأول:</strong> يقوم مدير المسابقة باختيار حرف أول عشوائي، ثم يطرح سؤالًا يجب أن تبدأ إجابته بذلك الحرف.</p>
+                    
+                    <p><strong>هدف كل فريق:</strong></p>
+                    <ul>
+                        <li>🟥 الفريق الأحمر يسعى لتكوين خط عمودي باللون الأحمر يفوز بالجولة عند اكمال الخط.</li>
+                        <li>🟩 الفريق الأخضر يسعى لتكوين خط أفقي باللون الأخضر يفوز بالجولة عند اكمال الخط.</li>
+                    </ul>
+                    
+                    <p><strong>تحديد الفائز بالسؤال:</strong></p>
+                    <ul>
+                        <li>الفريق الذي يضغط الجرس أولًًا ⏳ لديه 3 ثوانٍ للإجابة.</li>
+                        <li>✅ إجابة صحيحة → تتلون الخلية بلون الفريق.</li>
+                        <li>❌ إجابة خاطئة → ينتقل السؤال للفريق الآخر لمدة 10 ثوانٍ ⏳، ثم يصبح متاحًا للجميع، وعلى من يريد الإجابة الضغط على الجرس أولًا.</li>
+                        <li>الفريق الفائز بالحرف يختار الحرف التالي.</li>
+                    </ul>
+                    
+                    <p><strong>تحديد الفائز بالمسابقة:</strong></p>
+                    <ul>
+                        <li>يتم لعب 3 جولات، والفريق الذي يفوز بجولتين هو الفائز بالمسابقة! 🏆</li>
+                    </ul>
+                    
+                    <h4>ميزات إضافية</h4>
+                    <ul>
+                        <li><strong>مسح الكل:</strong> يعيد تعيين جميع الخلايا إلى حالتها الأصلية.</li>
+                        <li><strong>حرف عشوائي:</strong> يبرز حرفًا عشوائيًا في اللوحة لمدة 3 ثوانٍ.</li>
+                        <li><strong>تبديل الحروف:</strong> يخلط مواضع الحروف في اللوحة.</li>
+                        <li><strong>الوضع الليلي:</strong> يبدل بين الواجهة الفاتحة والداكنة لراحة العينين.</li>
+                        <li><strong>تغيير اللغة:</strong> يبدل بين الحروف العربية والإنجليزية.</li>
+                        <li><strong>تكبير/تصغير:</strong> يتحكم في حجم خلية الحروف.</li>
+                    </ul>
+                    
+                    <h4>حول اللعبة</h4>
+                    <p>تم تصميم لعبة خلية الحروف لتكون تجربة تفاعلية ممتعة للصغار والكبار. تساعد اللعبة على تعزيز الثقافة العامة وروح الفريق بطريقة تنافسية ممتعة.</p>
+                </div>
+                <button id="closeHelpBtn" class="close-help-btn">إغلاق</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            © جميع الحقوق محفوظة - لعبة خلية الحروف بواسطة عبداللطيف الخنبشي 2025 
+        </footer>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
